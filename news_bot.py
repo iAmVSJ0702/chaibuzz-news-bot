@@ -104,14 +104,13 @@ def generate_post(articles):
 
     {json.dumps(articles, indent=2)}
 
-    Write a NEW detailed news post, with in-depth content and a catchy title.
+    Write a NEW detailed news post, with in-depth content and a catchy title, i want a click bait title.
     STRICTLY return valid JSON in this format:
 
     {{
       "title": "Catchy blog title",
       "content": "<p>Full HTML formatted blog content...</p>",
-      "labels": ["tag1", "tag2", "tag3"],
-      "image_source_id": "<id of the article whose image should be used, or null>"
+      "labels": ["tag1", "tag2", "tag3"]
     }}
     """
     response = client.models.generate_content(
