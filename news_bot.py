@@ -152,9 +152,26 @@ def post_to_blogger(title, content, labels=None, image_url=None):
 # ------------------- MAIN BOT FUNCTION -------------------
 def run_bot():
     print("=== 📢 STARTING NEWS BOT ===")
-    articles = fetch_random_news(number=30, country="in")
-    gemini_output = generate_post(articles)
 
+    # Step 1: Fetch articles
+    articles = fetch_random_news(number=30, country="in")
+    if not articles:
+        print("⚠️ No articles fetched. Aborting run.")
+        return None
+
+    # Step 2: Generate post
+    try:
+        gemini_output = generate_post(articles)
+    except Exception as e:
+        print(f"❌ Gemini failed to generate post: {e}")
+        return None
+
+    # Validate Gemini output
+    if not gemini_output.get("title") or not gemini_output.get("content"):
+        print("⚠️ Gemini output missing title/content. Aborting run.")
+        return None
+
+    # Step 3: Extract image (optional)
     image_url = None
     if gemini_output.get("image_source_id"):
         for art in articles:
@@ -163,13 +180,19 @@ def run_bot():
                     image_url = art["image"]
                 break
 
-    post_to_blogger(
-        title=gemini_output["title"],
-        content=gemini_output["content"],
-        labels=gemini_output.get("labels", []),
-        image_url=image_url
-    )
-    print("=== 🎉 NEWS BOT FINISHED ===")
+    # Step 4: Post to Blogger
+    try:
+        post = post_to_blogger(
+            title=gemini_output["title"],
+            content=gemini_output["content"],
+            labels=gemini_output.get("labels", []),
+            image_url=image_url
+        )
+        print("=== 🎉 NEWS BOT FINISHED ===")
+        return post
+    except Exception as e:
+        print(f"❌ Failed to post to Blogger: {e}")
+        return None
 
 # ------------------- FLASK ROUTE -------------------
 @app.route("/run")
