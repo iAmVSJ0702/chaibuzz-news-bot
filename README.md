@@ -6,7 +6,7 @@
 
 An automated content pipeline that fetches the latest news, uses Google's Gemini AI to write unique articles, and posts them directly to a Blogspot blog every hour. This project is a powerful demonstration of API orchestration and AI-driven content creation.
 
-**Check out the live demo blog powered by this bot: [chaibuzz.blogspot.com](https://chaibuzz.blogspot.com)**
+**👉 Live Demo Blog: [chaibuzz.blogspot.com](https://chaibuzz.blogspot.com)**
 
 
 
@@ -14,11 +14,11 @@ An automated content pipeline that fetches the latest news, uses Google's Gemini
 
 ## ✨ Features
 
-* **Automated Content Fetching**: Pulls recent news articles from various categories using the [World News API](https://worldnewsapi.com/).
-* **AI-Powered Content Generation**: Leverages Google's **Gemini AI** to analyze multiple articles and generate a brand-new, comprehensive, and engaging blog post.
+* **Automated News Fetching**: Pulls recent news articles from various categories using the [World News API](https://worldnewsapi.com/).
+* **AI-Powered Writing**: Leverages Google's **Gemini AI** to analyze multiple articles and generate a brand-new, comprehensive, and engaging blog post.
 * **Automatic Publishing**: Seamlessly posts the generated article, including a title, HTML content, labels (tags), and a relevant image, to any Blogspot blog using the Blogger API v3.
-* **Cloud-Ready**: Built with Flask, it's designed to be deployed on cloud platforms like Render.
-* **Scheduler-Friendly**: Includes a simple `/run` endpoint to be triggered by cron job services like Make.com, EasyCron, or GitHub Actions.
+* **Cloud-Deployable**: Built with Flask, it's designed to be deployed on cloud platforms like Render.
+* **Scheduler Ready**: Includes a simple `/run` endpoint to be triggered by cron job services like Make.com, EasyCron, or GitHub Actions.
 
 ---
 
@@ -62,8 +62,8 @@ Follow these steps to get your own AI News Bot up and running.
 ### 2. Clone the Repository
 
 ```bash
-git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
-cd your-repository-name
+git clone https://github.com/iAmVSJ0702/chaibuzz-news-bot.git
+cd chaibuzz-news-bot
 ```
 
 ### 3. Set Up a Virtual Environment
@@ -134,7 +134,7 @@ Before you can automate posts, you need to run an initial authorization flow to 
 Run the script locally from your terminal:
 
 ```bash
-python news_bot_flask.py --noauth_local_webserver
+python news_bot.py --noauth_local_webserver
 ```
 
 * A URL will be printed to your console. Copy and paste it into your browser.
@@ -157,7 +157,7 @@ This application is ready for deployment on a free Render web service.
 4.  Set the following configuration:
     * **Environment**: `Python 3`
     * **Build Command**: `pip install -r requirements.txt`
-    * **Start Command**: `gunicorn news_bot_flask:app`
+    * **Start Command**: `gunicorn news_bot:app`
 5.  Go to the **"Environment"** tab and add all the secrets from your `.env` file (`WORLDNEWS_API_KEY`, `GEMINI_API_KEY`, `BLOG_URL`).
 6.  Click **"Create Web Service"**. Render will deploy your application.
 
@@ -187,4 +187,4 @@ Contributions are welcome! If you have suggestions for improvements, please feel
 
 ## License
 
-Pistributed under the **GNU General Public License v3.0**. See 'LICENSE' for more information.
+Distributed under the **GNU General Public License v3.0**. See 'LICENSE' for more information.
