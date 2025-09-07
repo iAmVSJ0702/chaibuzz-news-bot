@@ -8,7 +8,16 @@ An automated content pipeline that fetches the latest news, uses Google's Gemini
 
 **👉 Live Demo Blog: [chaibuzz.blogspot.com](https://chaibuzz.blogspot.com)**
 
+---
 
+## 📑 Table of Contents
+- [✨ Features](#-features)
+- [⚙️ How It Works](#%EF%B8%8F-how-it-works)
+- [🚀 Setup and Installation](#-setup-and-installation)
+- [☁️ Deployment on Render](#%EF%B8%8F-deployment-on-render)
+- [⏰ Automation with Make.com](#-automation-with-makecom)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#license)
 
 ---
 
