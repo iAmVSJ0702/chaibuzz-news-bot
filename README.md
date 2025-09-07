@@ -1,4 +1,4 @@
-# 🤖 AI News Bot for Blogger
+# 🤖 ChaiBuzz News Bot
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
@@ -125,14 +125,13 @@ WORLDNEWS_API_KEY="YOUR_WORLDNEWS_API_KEY"
 GEMINI_API_KEY="YOUR_GEMINI_API_KEY"
 
 # --- Blogger Config ---
-BLOG_URL="[https://your-blog-name.blogspot.com/](https://your-blog-name.blogspot.com/)"
+BLOG_URL="https://your-blog-name.blogspot.com/"
+BLOGGER_SCOPES="https://www.googleapis.com/auth/blogger"
 
 # --- File Paths (Defaults are usually fine) ---
 CLIENT_SECRET_FILE="client_secret.json"
 STORAGE_FILE="credentials.storage"
 
-# --- Scopes (Default is correct for Blogger) ---
-BLOGGER_SCOPES="[https://www.googleapis.com/auth/blogger](https://www.googleapis.com/auth/blogger)"
 ```
 *(Note: If you are deploying to a service like Render, you will set these in the environment variables section of your service dashboard instead of using a `.env` file.)*
 
